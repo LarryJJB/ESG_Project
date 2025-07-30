@@ -1,0 +1,141 @@
+/* `body`와 `html` 태그에 대한 기본 스타일을 초기화하고 설정합니다. */
+body, html {
+  margin: 0; /* 바깥쪽 여백 제거 */
+  padding: 0; /* 안쪽 여백 제거 */
+  height: 100%; /* 전체 높이를 브라우저 창 크기에 맞춤 */
+  background: #f0f2f5; /* 전체 페이지 배경색을 밝은 회색으로 설정 */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 기본 글꼴 설정 */
+  color: #333; /* 기본 글자색 설정 */
+}
+
+/* 최상위 컨테이너 클래스에 대한 스타일 */
+.app-container {
+  min-height: 100vh;      /* 최소 높이를 화면 세로 크기(viewport height)와 같게 하여 항상 꽉 차게 보임 */
+  width: 100vw;           /* 너비를 화면 가로 크기(viewport width)와 같게 설정 */
+  display: flex;          /* Flexbox 레이아웃 사용 */
+  justify-content: center;  /* 자식 요소를 수평 방향(가로)으로 중앙 정렬 */
+  align-items: center;      /* 자식 요소를 수직 방향(세로)으로 중앙 정렬 */
+  background-color: #f0f2f5; /* 배경색 설정 */
+  padding: 40px 20px;       /* 위아래 40px, 좌우 20px의 안쪽 여백 */
+  box-sizing: border-box;   /* padding과 border를 width/height 계산에 포함시켜 레이아웃 예측을 쉽게 함 */
+}
+
+/* .app-container 바로 아래의 div 자식 요소에 대한 스타일 (콘텐츠 박스) */
+.app-container > div {
+  background: white; /* 배경을 흰색으로 설정 */
+  padding: 40px 60px; /* 안쪽 여백을 넉넉하게 설정 */
+  border-radius: 16px; /* 모서리를 둥글게 처리 */
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12); /* 입체감을 주는 그림자 효과 */
+  width: 100%; /* 너비를 부모 요소에 꽉 채움 */
+  max-width: 900px;       /* 하지만 최대 너비를 900px로 제한하여 화면이 너무 넓어져도 콘텐츠가 보기 좋게 유지됨 */
+  box-sizing: border-box;
+  display: flex; /* 내부 요소들을 Flexbox로 정렬 */
+  flex-direction: column; /* 자식 요소들을 세로 방향으로 쌓음 */
+}
+
+/* 헤더(header) 태그에 대한 스타일 */
+header {
+  text-align: center; /* 텍스트 중앙 정렬 */
+  margin-bottom: 40px; /* 아래쪽 바깥 여백 */
+}
+
+/* 헤더 안의 h1 태그 스타일 */
+header h1 {
+  font-size: 3rem; /* 글자 크기 */
+  margin-bottom: 12px;
+}
+
+/* 헤더 안의 p 태그 스타일 */
+header p {
+  font-size: 1.25rem;
+  color: #666; /* 기본 글자색보다 약간 연한 회색 */
+}
+
+/* 파일 입력(input) 요소에 대한 스타일 */
+.file-input {
+  display: block; /* 블록 요소로 만들어 한 줄을 모두 차지하게 함 */
+  margin: 0 auto 30px auto; /* 위 0, 좌우 자동(중앙 정렬), 아래 30px 여백 */
+  font-size: 1.1rem;
+  cursor: pointer; /* 마우스 커서를 손가락 모양으로 변경 */
+}
+
+/* 이미지 미리보기 컨테이너 스타일 */
+.preview-container {
+  border: 3px solid #ddd; /* 회색 실선 테두리 */
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+  max-height: 450px; /* 최대 높이 제한 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+}
+
+/* 미리보기 이미지 스타일 */
+.preview-image {
+  max-width: 100%; /* 이미지가 컨테이너 너비를 넘지 않도록 함 */
+  max-height: 420px; /* 이미지가 컨테이너 높이를 넘지 않도록 함 */
+  border-radius: 10px;
+  object-fit: contain; /* 이미지 비율을 유지하면서 컨테이너 안에 모두 보이도록 맞춤 */
+}
+
+/* 분석 버튼 스타일 */
+.analyze-button {
+  background-color: #007bff; /* 파란색 배경 */
+  color: white; /* 흰색 글자 */
+  font-weight: 700; /* 굵은 글씨체 */
+  padding: 16px 0;
+  border: none; /* 테두리 없음 */
+  border-radius: 10px;
+  width: 100%; /* 너비 100% */
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* 배경색 변경 시 0.3초 동안 부드럽게 전환 */
+  margin-bottom: 30px;
+}
+
+/* 버튼에 마우스를 올렸을 때(hover), 단 비활성화(:disabled) 상태가 아닐 때의 스타일 */
+.analyze-button:hover:not(:disabled) {
+  background-color: #0056b3; /* 더 진한 파란색으로 변경 */
+}
+
+/* 버튼이 비활성화 상태일 때의 스타일 */
+.analyze-button:disabled {
+  background-color: #999; /* 회색 배경 */
+  cursor: not-allowed; /* 금지 표시 커서 */
+}
+
+/* 결과 메시지 스타일 */
+.result-message {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+/* '정상' 결과일 때의 스타일 */
+.result-good {
+  color: #28a745; /* 초록색 */
+}
+
+/* '불량' 결과일 때의 스타일 */
+.result-bad {
+  color: #dc3545; /* 빨간색 */
+}
+
+/* 에러 메시지 스타일 */
+.error-message {
+  color: #dc3545;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 푸터(footer) 스타일 */
+footer {
+  text-align: center;
+  font-size: 1rem;
+  color: #aaa; /* 연한 회색 */
+  margin-top: auto; /* flex container 안에서 남는 공간을 모두 위쪽 여백으로 사용하여 푸터를 맨 아래에 배치 */
+  padding-top: 20px;
+  border-top: 1px solid #eee; /* 위쪽에 얇은 구분선 추가 */
+}

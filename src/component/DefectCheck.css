@@ -1,0 +1,198 @@
+/* 폰트 및 기본 페이지 설정 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 전체 페이지 컨테이너: 화면 전체를 차지하며, 모든 콘텐츠를 정중앙에 배치 */
+.defect-check-page {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* 콘텐츠 보호 및 여백을 위한 패딩 추가 */
+  padding: 40px 100px;
+  
+  box-sizing: border-box;
+
+  /* 폰트 렌더링을 부드럽게 처리 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+/* 페이지 타이틀 */
+.page-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1e3c72;
+  margin-bottom: 40px;
+}
+
+/* 메인 컨텐츠 영역 (2단 패널 컨테이너) */
+.main-content {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  gap: 30px;
+}
+
+/* 좌우 패널 공통 스타일 */
+.panel {
+  flex: 1; /* 1:1 비율 */
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 40px;
+  transition: all 0.3s ease;
+  height: 500px;           /* ✅ 고정 높이 설정 */
+}
+
+.panel h2 {
+  font-size: 1.6rem;
+  color: #1e3c72;
+  margin: 0 0 15px 0;
+}
+
+/* 우측 패널 전용 스타일 */
+.output-panel {
+  align-items: center; /* 내부 콘텐츠를 수평 중앙 정렬 */
+}
+
+/* --- 버튼 스타일 --- */
+.btn {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background-color: #1e3c72;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #3a5998;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  background-color: #e9ecef;
+  color: #333333;
+  border: 1px solid #dee2e6;
+}
+
+.btn-secondary:hover {
+  background-color: #dee2e6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 비활성화 상태는 :disabled 가상 클래스로 관리 */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 파일 업로드 input 숨기기 */
+.file-input {
+  display: none;
+}
+
+/* --- 결과 표시 영역 --- */
+.output-placeholder {
+  font-size: 1.5rem;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 450px;
+  border-radius: 10px;
+  border: 2px dashed #1e3c72;
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.result-box {
+  width: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid;
+  box-sizing: border-box;
+}
+
+/* 조건부 클래스로 결과 스타일링 */
+.result-box.normal {
+  background-color: #f0fff0;
+  border-color: #5cb85c;
+}
+
+.result-box.defective {
+  background-color: #fff0f0;
+  border-color: #d9534f;
+}
+
+.result-box .result-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.result-box.normal .result-title { color: #5cb85c; }
+.result-box.defective .result-title { color: #d9534f; }
+
+.result-box .result-title span {
+  font-size: 2rem;
+}
+
+.result-box hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.result-box .ocr-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+  text-align: left;
+}
+
+.result-box .ocr-text span {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.home-button {
+  margin-top: 40px;
+  max-width: 300px; /* 홈 버튼은 너무 길지 않도록 */
+}
