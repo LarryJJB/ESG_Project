@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 // 각 페이지를 구성하는 컴포넌트들을 가져옵니다.
 import Home from "./component/Home.jsx"; // 메인 페이지 (랜딩 페이지)
 import DefectCheck from "./component/DefectCheck.jsx"; // 불량 판정 페이지
+import Login from "./component/LoginCorp.jsx";
 
 // App 컴포넌트는 애플리케이션의 최상위 레벨에서 라우팅 구조를 정의합니다.
 function App() {
@@ -21,6 +22,8 @@ function App() {
       {/* path="/defect-check"는 (예: http://localhost:3000/defect-check) 경로를 의미합니다. */}
       {/* 이 경로로 접속하면 <DefectCheck /> 컴포넌트가 화면에 표시됩니다. */}
       <Route path="/defect-check" element={<DefectCheck />} />
+
+      <Route path="/login" element={<Login/>} />
     </Routes>
   );
 }
